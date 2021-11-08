@@ -54,7 +54,8 @@ public class Create_Account extends BorderPane {
 		
 		profession = new ComboBox<String>();
 		profession.getItems().addAll("Doctor", "Nurse", "Patient");
-		profession.setPromptText("Choose Profession");
+		profession.setPromptText("Patient");
+		profession.setOnAction(new ProfessionHandler());
 		
 		message = new Label();
 		
@@ -93,9 +94,6 @@ public class Create_Account extends BorderPane {
 	private class ButtonHandler implements EventHandler<ActionEvent> {
 		@Override
 		public void handle(ActionEvent event) {
-
-			User user = new User(fName.getText().toString(), lName.getText().toString(), dob.getText().toString(), 
-					userID.getText().toString(), password.getText().toString(), pNumber.getText().toString(), e.getText().toString());
 			
 			if(fName.getText().toString().isEmpty() || lName.getText().toString().isEmpty() || dob.getText().toString().isEmpty() || 
 					userID.getText().toString().isEmpty() || password.getText().toString().isEmpty() || pNumber.getText().toString().isEmpty() ||
@@ -109,7 +107,8 @@ public class Create_Account extends BorderPane {
 				message.setTextFill(Color.GREEN);
 			}
 			
-			
+			User user = new User(false, false, false, fName.getText().toString(), lName.getText().toString(), dob.getText().toString(), 
+					userID.getText().toString(), password.getText().toString(), pNumber.getText().toString(), e.getText().toString());
 			
 			fName.setText("");
 			lName.setText("");
@@ -119,5 +118,29 @@ public class Create_Account extends BorderPane {
 			pNumber.setText("");
 			e.setText("");
 		}	
+	}
+	
+	private class ProfessionHandler implements EventHandler<ActionEvent> {
+
+		@Override
+		public void handle(ActionEvent event) {
+
+			if(profession.getValue().equalsIgnoreCase("Doctor")) {
+				
+				User user = new User(true, false, false, fName.getText().toString(), lName.getText().toString(), dob.getText().toString(), 
+						userID.getText().toString(), password.getText().toString(), pNumber.getText().toString(), e.getText().toString());
+				
+			} else if(profession.getValue().equalsIgnoreCase("Nurse")) {
+				
+				User user = new User(false, true, false, fName.getText().toString(), lName.getText().toString(), dob.getText().toString(), 
+						userID.getText().toString(), password.getText().toString(), pNumber.getText().toString(), e.getText().toString());
+		
+			} else {
+				
+				User user = new User(false, false, true, fName.getText().toString(), lName.getText().toString(), dob.getText().toString(), 
+						userID.getText().toString(), password.getText().toString(), pNumber.getText().toString(), e.getText().toString());
+				
+			}	
+		}		
 	}
 }
