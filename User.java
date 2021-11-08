@@ -12,9 +12,12 @@ public class User
 	protected String password;
 	protected String phone;
 	protected String email;
+	protected boolean dr;
+	protected boolean nurse;
+	protected boolean patient;
 
 	//Constructor
-	User(String fname, String lname, String birthDate, String uname, String pass, String phoneNumber, String mail)
+	User(boolean doc, boolean nur, boolean pat, String fname, String lname, String birthDate, String uname, String pass, String phoneNumber, String mail)
 	{
 		
 		//Assign data members
@@ -25,6 +28,9 @@ public class User
 		password = pass;
 		phone = phoneNumber;
 		email = mail;
+		dr = doc;
+		nurse = nur;
+		patient = pat;
 		
 	}//End of Constructor
 	
@@ -86,6 +92,33 @@ public class User
 		return password;
 		
 	}//End of getPassword method
+	
+	//isDoctor method
+	public boolean isDoctor()
+	{
+		
+		//Return boolean data
+		return dr;
+		
+	}//End of isDoctor method
+	
+	//isNurse method
+	public boolean isNurse()
+	{
+		
+		//Return boolean data
+		return nurse;
+		
+	}//End of isNurse method
+	
+	//isPatient method
+	public boolean isPatient()
+	{
+		
+		//Return boolean data
+		return patient;
+		
+	}//End of isPatient method
 	
 	//toString method
 	public String toString()
