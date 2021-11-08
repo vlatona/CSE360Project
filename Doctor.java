@@ -9,11 +9,11 @@ public class Doctor extends User
 	private ArrayList<Patient> patients;
 	
 	//Constructor
-	Doctor(String fname, String lname, String dob, String username, String password, String phone, String mail)
+	Doctor(boolean dr, boolean nurse, boolean patient, String fname, String lname, String dob, String username, String password, String phone, String mail)
 	{
 		
 		//Build Doctor user
-		super(fname, lname, dob, username, password, phone, mail);
+		super(dr, nurse, patient, fname, lname, dob, username, password, phone, mail);
 		
 	}//End of Constructor
 	
