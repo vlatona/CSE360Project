@@ -1,3 +1,4 @@
+package application;
 import java.util.*;
 
 //Child Doctor class for doctors
@@ -18,6 +19,14 @@ public class Doctor extends User
 	}//End of Constructor
 	
 	//Mutators
+	// If isDoctor method
+	public boolean isDoctor()
+	{
+		
+		//Use user
+		return super.isDoctor();
+		
+	}//End of toString method
 	//changeName method
 	public boolean changeName(String newFirst, String newLast)
 	{
