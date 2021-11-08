@@ -9,7 +9,7 @@ public class UserDatabase
 	
 	//Public methods
 	//Create User
-	public User createUser(String type, String fName, String lName, String dob, int phone, String email)
+	public User createUser(String type, String fName, String lName, String dob, String uname, String pass, String phone, String email)
 	{
 		
 		//Doctor case
@@ -17,7 +17,7 @@ public class UserDatabase
 		{
 			
 			//Create new doctor
-			Doctor dr = new Doctor(fName, lName, dob, phone, email);
+			Doctor dr = new Doctor(fName, lName, dob, uname, pass, phone, email);
 			
 			//Add user to list of users
 			boolean bool = users.add(dr);
@@ -47,7 +47,7 @@ public class UserDatabase
 		{
 			
 			//Create new nurse
-			Nurse nurse = new Nurse(fName, lName, dob, phone, email);
+			Nurse nurse = new Nurse(fName, lName, dob, uname, pass, phone, email);
 			
 			//Add user to list of users
 			boolean bool = users.add(nurse);
@@ -77,7 +77,7 @@ public class UserDatabase
 		{
 			
 			//Create new patient
-			Patient patient = new Patient(fName, lName, dob, phone, email);
+			Patient patient = new Patient(fName, lName, dob, uname, pass, phone, email);
 			
 			//Add user to list of users
 			boolean bool = users.add(patient);
@@ -105,10 +105,26 @@ public class UserDatabase
 	}//End of method createUser
 	
 	//User Authentication
-	public User authenticate(String fName, String lName, String dob)
+	public User authenticate(String uname, String pass)
 	{
 		
+		//User iterator
+		for(int a = 0; a < users.size(); a++)
+		{
+			
+			//Check for user
+			if(users.get(a).getUsername().equals(uname) && users.get(a).getPassword().equals(pass))
+			{
+				
+				//Return found user
+				return users.get(a);
+				
+			}//End of user check
+			
+		}//End of user iterator
 		
+		//Return null for non-existent
+		return null;
 		
 	}//End of method authenticate
 	
