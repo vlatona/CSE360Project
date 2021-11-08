@@ -9,98 +9,32 @@ public class UserDatabase
 	
 	//Public methods
 	//Create User
-	public User createUser(String type, String fName, String lName, String dob, String uname, String pass, String phone, String email)
+	public User createUser(boolean dr, boolean nurse, boolean patient, String fName, String lName, String dob, String uname, String pass, String phone, String email)
 	{
 		
-		//Doctor case
-		if(type.equalsIgnoreCase("Doctor"))
+		//Create new doctor
+		User user = new User(dr, nurse, patient, fName, lName, dob, uname, pass, phone, email);
+		
+		//Add user to list of users
+		boolean bool = users.add(user);
+		
+		//Successful add
+		if(bool)
 		{
 			
-			//Create new doctor
-			Doctor dr = new Doctor(fName, lName, dob, uname, pass, phone, email);
+			//Return pointer
+			return user;
 			
-			//Add user to list of users
-			boolean bool = users.add(dr);
-			
-			//Successful add
-			if(bool)
-			{
-				
-				//Return pointer
-				return dr;
-				
-			}//End of successful add
-			
-			//Unsuccessful add
-			else
-			{
-				
-				//Return null pointer
-				return null;
-				
-			}//End of unsuccessful add
-			
-		}//End of doctor case
+		}//End of successful add
 		
-		//Nurse case
-		else if(type.equalsIgnoreCase("Nurse"))
-		{
-			
-			//Create new nurse
-			Nurse nurse = new Nurse(fName, lName, dob, uname, pass, phone, email);
-			
-			//Add user to list of users
-			boolean bool = users.add(nurse);
-			
-			//Successful add
-			if(bool)
-			{
-				
-				//Return pointer
-				return nurse;
-				
-			}//End of successful add
-			
-			//Unsuccessful add
-			else
-			{
-				
-				//Return null pointer
-				return null;
-				
-			}//End of unsuccessful add
-			
-		}//End of nurse case
-		
-		//Patient case
+		//Unsuccessful add
 		else
 		{
 			
-			//Create new patient
-			Patient patient = new Patient(fName, lName, dob, uname, pass, phone, email);
+			//Return null pointer
+			return null;
 			
-			//Add user to list of users
-			boolean bool = users.add(patient);
-			
-			//Successful add
-			if(bool)
-			{
-				
-				//Return pointer
-				return patient;
-				
-			}//End of successful add
-			
-			//Unsuccessful add
-			else
-			{
-				
-				//Return null pointer
-				return null;
-				
-			}//End of unsuccessful add
-			
-		}//End of patient case
+		}//End of unsuccessful add
 		
 	}//End of method createUser
 	
