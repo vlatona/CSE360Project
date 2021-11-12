@@ -6,7 +6,7 @@ public class Appointment
 
 	// Private variables
 	private String height;
-	private int weight;
+	private String weight;
 	private String bloodPressure;
 	private ArrayList<String> allergies;
 	private ArrayList<String> concerns;
@@ -15,13 +15,14 @@ public class Appointment
 	private Patient patient;
 
 	//Constructor
-	public Appointment(String h, int w, String bp, Patient p) 
+	public Appointment(String h, String w, String bp, Patient p) 
 	{
 
 		// Set private variables
 		height = h;
 		weight = w;
 		bloodPressure = bp;
+		summary = "";
 		patient = p;
 
 	}//End of constructor
@@ -39,7 +40,7 @@ public class Appointment
 	}//End of method setHeight
 
 	//Set Weight
-	public boolean setWeight(int w) 
+	public boolean setWeight(String w) 
 	{
 
 		//Set weight and return true
@@ -138,11 +139,24 @@ public class Appointment
 		
 	}//End of method removeMed
 	
+	//createSummary method for the appointment
+	public void createSummary()
+	{
+		
+		//Generate summary of appointment
+		summary = "Allergies:\n" + allergies.toString()
+		+ "Concerns:\n" + concerns.toString() + "New Medications:\n"
+		+ newMeds.toString();
+		
+	}//End of method createSummary
+	
 	//Update History
 	public boolean updateHistory()
 	{
 		
-		
+		//Update visit history with summary
+		patient.updateVisit(summary);
+		return true;
 		
 	}//End of method updateHistory
 	
