@@ -20,7 +20,7 @@ public class Patient extends User
 	//Custom Constructor
 	public Patient(String first, String last, String dob, int phone, String mail, String pharmacy, ArrayList<String> medications, ArrayList<String> immunizations)
 	{
-		super(first, last, dob, phone, mail); //call default constructor or Parent User class
+		super(first, last, dob, phone, mail); //call default constructor of Parent User class
 		this.pharmacy = pharmacy;
 		this.medications = medications;
 		this.immunizations = immunizations;
