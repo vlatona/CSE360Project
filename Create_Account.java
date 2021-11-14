@@ -132,7 +132,7 @@ public class Create_Account extends BorderPane {
 
 			try {
 
-				FileWriter myFile = new FileWriter("/Users/aryankhanna/Documents/ASU/CSE 360/Test/someFile.txt");
+				FileWriter myFile = new FileWriter("/Users/aryankhanna/Documents/ASU/CSE 360/Test/" + lName.getText());
 				
 				boolean flag;
 
