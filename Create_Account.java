@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -102,6 +105,7 @@ public class Create_Account extends BorderPane {
 	}
 
 	public class ButtonHandler implements EventHandler<ActionEvent> {
+
 		@Override
 		public void handle(ActionEvent event) {
 
@@ -124,6 +128,25 @@ public class Create_Account extends BorderPane {
 
 				System.out.println(profession.getValue());
 
+			}
+
+			try {
+
+				FileWriter myFile = new FileWriter("/Users/aryankhanna/Documents/ASU/CSE 360/Test/someFile.txt");
+				
+				boolean flag;
+
+				myFile.write("Patient Name: " + fName.getText() + " " + lName.getText());
+				// myFile.write(fName.getText());
+				// myFile.write(" ");
+				// myFile.write(lName.getText());
+				myFile.write("\nPatient Date Of Birth: " + dob.getText());
+				// myFile.write(dob.getText());
+				myFile.close();
+				System.out.println("Wrote to file successfully");
+				
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 
 			fName.setText("");
