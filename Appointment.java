@@ -25,9 +25,9 @@ public class Appointment {
 		patient = p;
 
 	}// End of constructor
-	
+
 	public Appointment() {
-		
+
 	}
 
 	// Public methods

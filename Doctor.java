@@ -5,7 +5,7 @@ public class Doctor extends User {
 
 	// Private variables of Doctor
 	private ArrayList<Nurse> nurses;
-	//private ArrayList<Patient> patients;
+	// private ArrayList<Patient> patients;
 
 	// Constructor
 	Doctor(String fname, String lname, String dob, String username, String password, String phone, String mail) {
@@ -49,23 +49,20 @@ public class Doctor extends User {
 	}// End of changeEmail method
 
 	// addPatient method
-/*	public boolean addPatient(Patient p) {
-
-		// Add patient and return true
-		boolean bool = patients.add(p);
-		return bool;
-
-	}// End of addPatient method
-
-	// removePatient method
-	public boolean removePatient(Patient p) {
-
-		// Remove patient and return true
-		boolean bool = patients.remove(p);
-		return bool;
-
-	}// End of removePatient method
-	*/
+	/*
+	 * public boolean addPatient(Patient p) {
+	 * 
+	 * // Add patient and return true boolean bool = patients.add(p); return bool;
+	 * 
+	 * }// End of addPatient method
+	 * 
+	 * // removePatient method public boolean removePatient(Patient p) {
+	 * 
+	 * // Remove patient and return true boolean bool = patients.remove(p); return
+	 * bool;
+	 * 
+	 * }// End of removePatient method
+	 */
 
 	// removeNurse method
 	public boolean removeNurse(Nurse n) {
@@ -80,7 +77,8 @@ public class Doctor extends User {
 	public String toString() {
 
 		// Use user
-		return super.toString();
+		return "\n" + fName + "\n" + lName + "\n" + dob + "\n" + phone
+				+ "\n" + email + "\n";
 
 	}// End of toString method
 

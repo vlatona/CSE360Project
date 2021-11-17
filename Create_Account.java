@@ -126,7 +126,7 @@ public class Create_Account extends BorderPane {
 				message.setText("Appointment Created");
 				message.setTextFill(Color.GREEN);
 
-				System.out.println(profession.getValue());
+				// System.out.println(profession.getValue());
 
 			}
 
@@ -134,22 +134,15 @@ public class Create_Account extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter(
-							"/Users/aryankhanna/Documents/ASU/CSE 360/Test/Patient_file.txt");
-
-					// myFile.write("Patient Name: " + fName.getText() + " " + lName.getText());
-					// myFile.write("\nPatient Date Of Birth: " + dob.getText());
-					// myFile.write("\nPatient PhoneNumber: " + pNumber.getText());
-					// myFile.write("\nPatient Date Of Birth: " + e.getText());
+					FileWriter myFile = new FileWriter("Patient_file.txt");
 
 					Patient p = new Patient(false, false, true, fName.getText(), lName.getText(), dob.getText(),
 							userID.getText(), password.getText(), pNumber.getText(), e.getText());
 
 					myFile.write(userID.getText() + "\n");
 					myFile.write(password.getText() + "\n");
-					
-					myFile.write(p.toString());
 
+					myFile.write(p.toString());
 					myFile.close();
 
 					System.out.println("Wrote to file successfully");
@@ -162,16 +155,15 @@ public class Create_Account extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Doctor_File.txt");
-					
+					FileWriter myFile = new FileWriter("Doctor_File.txt");
+
+					Doctor d = new Doctor(fName.getText(), lName.getText(), dob.getText(), userID.getText(),
+							password.getText(), pNumber.getText(), e.getText());
+
 					myFile.write(userID.getText() + "\n");
 					myFile.write(password.getText() + "\n");
 
-					myFile.write("Doctor Name: " + fName.getText() + " " + lName.getText());
-					myFile.write("\nDoctor Date Of Birth: " + dob.getText());
-					myFile.write("\nDoctor PhoneNumber: " + pNumber.getText());
-					myFile.write("\nDoctor Date Of Birth: " + e.getText());
-
+					myFile.write(d.toString());
 					myFile.close();
 
 					System.out.println("Wrote to file successfully");
@@ -184,16 +176,15 @@ public class Create_Account extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Nurse_file.txt");
-					
+					FileWriter myFile = new FileWriter("Nurse_file.txt");
+
+					Nurse n = new Nurse(fName.getText(), lName.getText(), dob.getText(), userID.getText(),
+							password.getText(), pNumber.getText(), e.getText());
+
 					myFile.write(userID.getText() + "\n");
 					myFile.write(password.getText() + "\n");
 
-					myFile.write("Nurse Name: " + fName.getText() + " " + lName.getText());
-					myFile.write("\nNurse Date Of Birth: " + dob.getText());
-					myFile.write("\nNurse PhoneNumber: " + pNumber.getText());
-					myFile.write("\nNurse Date Of Birth: " + e.getText());
-
+					myFile.write(n.toString());
 					myFile.close();
 
 					System.out.println("Wrote to file successfully");

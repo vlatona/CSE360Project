@@ -107,8 +107,8 @@ public class Patient extends User {
 	// toString method
 	public String toString() {
 
-		return "First Name: " + fName + "\nLast Name: " + lName + "\nDate of Birth: " + dob + "\nPhone Number: " + phone
-				+ "\nEmail: " + email + "\n" + "Pharmacy: " + pharmacy + "\nInsurance: " + insurance + "\n";
+		return "\n" + fName + "\n" + lName + "\n" + dob + "\n" + phone
+				+ "\n" + email + "\n" + pharmacy + "\n" + insurance + "\n";
 
 	}
 

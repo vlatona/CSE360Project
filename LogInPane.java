@@ -49,18 +49,18 @@ public class LogInPane extends BorderPane {
 		logIn = new Button("Log In");
 		logIn.setOnAction(new ButtonHandler());
 
-		hPane = new HBox();
-		hPane.setSpacing(34);
-		hPane.getChildren().addAll(userID, userIDInput);
-
-		hPane2 = new HBox();
-		hPane2.setSpacing(34);
-		hPane2.getChildren().addAll(password, passwordInput);
+		/*
+		 * hPane = new HBox(); hPane.setSpacing(34); hPane.getChildren().addAll(userID,
+		 * userIDInput);
+		 * 
+		 * hPane2 = new HBox(); hPane2.setSpacing(34);
+		 * hPane2.getChildren().addAll(password, passwordInput);
+		 */
 
 		gPane = new GridPane();
 		gPane.setPadding(new Insets(40, 40, 40, 40));
-		gPane.setHgap(25);
-		gPane.setVgap(25);
+		gPane.setHgap(30);
+		gPane.setVgap(30);
 
 		// gPane.add(title, 0, 1);
 		gPane.add(userID, 0, 0);
@@ -89,6 +89,8 @@ public class LogInPane extends BorderPane {
 			checkPass = passwordInput.getText().toString();
 
 			searchPatient();
+			searchDoctor();
+			searchNurse();
 
 			if (checkUser.equals(testUser) && checkPass.equals(testPass)) {
 				message.setText("Log in successful");
@@ -110,10 +112,10 @@ public class LogInPane extends BorderPane {
 
 		try {
 			String userID = Files
-					.readAllLines(Paths.get("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Patient_file.txt")).get(0);
+					.readAllLines(Paths.get("Patient_file.txt")).get(0);
 
 			String password = Files
-					.readAllLines(Paths.get("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Patient_file.txt")).get(1);
+					.readAllLines(Paths.get("Patient_file.txt")).get(1);
 
 			// System.out.println(userID);
 			// System.out.println(password);
@@ -123,6 +125,9 @@ public class LogInPane extends BorderPane {
 				testUser = userIDInput.getText();
 				testPass = passwordInput.getText();
 			}
+			
+			
+			Patient p = new Patient();
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -137,10 +142,10 @@ public class LogInPane extends BorderPane {
 
 		try {
 			String userID = Files
-					.readAllLines(Paths.get("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Doctor_file.txt")).get(0);
+					.readAllLines(Paths.get("Doctor_file.txt")).get(0);
 
 			String password = Files
-					.readAllLines(Paths.get("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Doctor_file.txt")).get(1);
+					.readAllLines(Paths.get("Doctor_file.txt")).get(1);
 
 			// System.out.println(userID);
 			// System.out.println(password);
@@ -164,10 +169,10 @@ public class LogInPane extends BorderPane {
 
 		try {
 			String userID = Files
-					.readAllLines(Paths.get("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Nurse_file.txt")).get(0);
+					.readAllLines(Paths.get("Nurse_file.txt")).get(0);
 
 			String password = Files
-					.readAllLines(Paths.get("/Users/aryankhanna/Documents/ASU/CSE 360/Test/Nurse_file.txt")).get(1);
+					.readAllLines(Paths.get("Nurse_file.txt")).get(1);
 
 			// System.out.println(userID);
 			// System.out.println(password);

@@ -44,6 +44,7 @@ public class Nurse extends User {
 
 	public String toString() {
 
-		return super.toString();
+		return "First Name: " + fName + "\nLast Name: " + lName + "\nDate of Birth: " + dob + "\nPhone Number: " + phone
+				+ "\nEmail: " + email + "\n";
 	}
 }

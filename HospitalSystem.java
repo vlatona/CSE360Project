@@ -21,11 +21,14 @@ public class HospitalSystem extends Application {
 
 		rootPane = new StackPane();
 
-		UserPortal_Appointment apt = new UserPortal_Appointment();
 
 		Create_Account createAccountPane = new Create_Account();
 
 		LogInPane logInPane = new LogInPane();
+		
+		UserPortal_Appointment apt = new UserPortal_Appointment();
+
+		HistoryPane hist = new HistoryPane();
 
 		tPane = new TabPane();
 		Tab tab1 = new Tab();
@@ -39,9 +42,13 @@ public class HospitalSystem extends Application {
 		Tab tab3 = new Tab();
 		tab3.setText("Appointment");
 		tab3.setContent(apt);
+		
+		Tab tab4 = new Tab();
+		tab4.setText("History");
+		tab4.setContent(hist);
 
 		tPane.getSelectionModel().select(0);
-		tPane.getTabs().addAll(tab1, tab2, tab3);
+		tPane.getTabs().addAll(tab1, tab2, tab3, tab4);
 
 		rootPane.getChildren().add(tPane);
 

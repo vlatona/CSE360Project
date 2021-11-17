@@ -121,11 +121,6 @@ public class UserPortal_Appointment extends BorderPane {
 				message.setTextFill(Color.RED);
 
 			} else {
-
-				Patient p = new Patient();
-				
-				apt = new Appointment(patientHeight.getText(), patientWeight.getText(), patientBP.getText(), p);
-
 				/*
 				 * apt.addAllergy(allergies.getValue()); apt.addConcern(concerns.getValue());
 				 * apt.addMed(medications.getValue());
@@ -140,17 +135,18 @@ public class UserPortal_Appointment extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter(
-							"/Users/aryankhanna/Documents/ASU/CSE 360/Test/PatientAppointment.txt");
+					FileWriter myFile = new FileWriter("Patient_Appointment.txt");
 
-					myFile.write("Patient Name: " + p.getFName() + " " + p.getLName());
+					apt = new Appointment(patientHeight.getText(), patientWeight.getText(), patientBP.getText(), p);
+
+					myFile.write("Patient Name: " + firstName.getText() + " " + lastName.getText());
 					myFile.write("\nPatient Allergies: " + allergies.getValue());
 					myFile.write("\nPatient Concerns: " + concerns.getValue());
 					myFile.write("\nPatient Medications: " + medications.getValue());
 
 					myFile.close();
 
-					System.out.println("Wrote to file successfully");
+					System.out.println("Wrote to Patient_Appointment successfully");
 
 				} catch (IOException e) {
 					e.printStackTrace();
