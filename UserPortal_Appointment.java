@@ -16,11 +16,11 @@ import javafx.scene.paint.Color;
 
 public class UserPortal_Appointment extends BorderPane {
 
-	Label title, fName, lName, height, weight, bp, date, time;
+	Label title, fName, lName, height, weight, bp, pharmacy;
 
-	TextField firstName, lastName, patientHeight, patientWeight, patientBP, date2, time2;
+	TextField firstName, lastName, patientHeight, patientWeight, patientBP, pharmacyName;
 
-	Label message;
+	Label message, message2;
 
 	Button createApt;
 
@@ -49,12 +49,14 @@ public class UserPortal_Appointment extends BorderPane {
 		allergy = new Label("Allergy: ");
 		concern = new Label("Concern: ");
 		meds = new Label("Medications: ");
+		pharmacy = new Label("Pharmacy: ");
 
 		firstName = new TextField();
 		lastName = new TextField();
 		patientHeight = new TextField();
 		patientWeight = new TextField();
 		patientBP = new TextField();
+		pharmacyName = new TextField();
 
 		allergies = new ComboBox<String>();
 		allergies.getItems().addAll("Animal", "Nuts", "Grass/Tree");
@@ -75,6 +77,7 @@ public class UserPortal_Appointment extends BorderPane {
 		createApt.setOnAction(new ButtonHandler());
 
 		message = new Label();
+		message2 = new Label();
 
 		gPane = new GridPane();
 		gPane.setPadding(new Insets(40, 40, 40, 40));
@@ -97,12 +100,14 @@ public class UserPortal_Appointment extends BorderPane {
 		gPane.add(concerns, 3, 3);
 		gPane.add(meds, 0, 4);
 		gPane.add(medications, 1, 4);
+		gPane.add(pharmacy, 2, 4);
+		gPane.add(pharmacyName, 3, 4);
 
 		vPane = new VBox();
 		vPane.setSpacing(20);
 		vPane.setPadding(new Insets(100, 100, 100, 100));
 		vPane.setAlignment(Pos.CENTER);
-		vPane.getChildren().addAll(title, gPane, createApt, message);
+		vPane.getChildren().addAll(title, gPane, createApt, message, message2);
 
 		this.setCenter(vPane);
 
@@ -128,6 +133,8 @@ public class UserPortal_Appointment extends BorderPane {
 
 				message.setText("Appointment Created");
 				message.setTextFill(Color.GREEN);
+				message2.setText(medications.getValue() + " sent to " + pharmacyName.getText());
+				message2.setTextFill(Color.GREEN);
 
 				// System.out.println(allergies.getValue());
 				// System.out.println(concerns.getValue());
@@ -152,7 +159,6 @@ public class UserPortal_Appointment extends BorderPane {
 					e.printStackTrace();
 
 				}
-
 			}
 
 			/*
@@ -174,6 +180,7 @@ public class UserPortal_Appointment extends BorderPane {
 			allergies.setValue("--Select--");
 			concerns.setValue("--Select--");
 			medications.setValue("--Select--");
+			pharmacyName.setText("");
 
 		}
 	}
