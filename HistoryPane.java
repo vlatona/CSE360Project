@@ -121,7 +121,8 @@ public class HistoryPane extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("Patient_History.txt");
+					FileWriter myFile = new FileWriter(
+							firstNameInput.getText() + lastNameInput.getText() + "History.txt");
 
 					myFile.write("Patient Name " + firstNameInput.getText() + " " + lastNameInput.getText());
 					myFile.write("\n\nImmunizations: ");
@@ -131,14 +132,14 @@ public class HistoryPane extends BorderPane {
 					myFile.write("\nFamily History: " + family.getValue());
 
 					myFile.close();
-					
+
 					System.out.println("Wrote to Patient_History file");
-					
+
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
-			
+
 			firstNameInput.setText("");
 			lastNameInput.setText("");
 			visits.setValue("--Select--");

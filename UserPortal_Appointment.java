@@ -142,7 +142,7 @@ public class UserPortal_Appointment extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("Patient_Appointment.txt");
+					FileWriter myFile = new FileWriter(firstName.getText() + lastName.getText() + "Appointment.txt");
 
 					apt = new Appointment(patientHeight.getText(), patientWeight.getText(), patientBP.getText(), p);
 

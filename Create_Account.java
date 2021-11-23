@@ -134,7 +134,7 @@ public class Create_Account extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("Patient_file.txt");
+					FileWriter myFile = new FileWriter(userID.getText() + ".txt");
 
 					Patient p = new Patient(false, false, true, fName.getText(), lName.getText(), dob.getText(),
 							userID.getText(), password.getText(), pNumber.getText(), e.getText());
@@ -155,7 +155,7 @@ public class Create_Account extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("Doctor_File.txt");
+					FileWriter myFile = new FileWriter(userID.getText() + ".txt");
 
 					Doctor d = new Doctor(fName.getText(), lName.getText(), dob.getText(), userID.getText(),
 							password.getText(), pNumber.getText(), e.getText());
@@ -176,7 +176,7 @@ public class Create_Account extends BorderPane {
 
 				try {
 
-					FileWriter myFile = new FileWriter("Nurse_file.txt");
+					FileWriter myFile = new FileWriter(userID.getText() + ".txt");
 
 					Nurse n = new Nurse(fName.getText(), lName.getText(), dob.getText(), userID.getText(),
 							password.getText(), pNumber.getText(), e.getText());
